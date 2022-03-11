@@ -227,7 +227,7 @@ if __name__ == "__main__":
     # i = 0
     t1 = time.time()
     while True:
-        if time.time()-t1 <20:
+        if time.time()-t1 <8:
             status = no_motion(my_camera)
             # print(str(i), my_camera.frame)
             # img = my_camera.frame
