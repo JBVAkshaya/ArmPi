@@ -173,5 +173,5 @@ if __name__ == "__main__":
     setBusServoPulse(2, 500, 500)
     #AK.setPitchRangeMoving((0, 10, 10), -30, -90, 0, 2000)
     #time.sleep(2)
-    print(AK.setPitchRangeMoving((-4.8, 15, 1.5), 0, -90, 0, 2000))
+    print(AK.setPitchRangeMoving((-4.8, 25, 1.5), 0, -90, 0, 2000))
     #AK.drawMoveRange2D(-10, 10, 0.2, 10, 30, 0.2, 2.5, -90, 90, 1)
