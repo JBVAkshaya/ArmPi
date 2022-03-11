@@ -12,7 +12,7 @@ from ArmIK.ArmMoveIK import *
 from CameraCalibration.CalibrationConfig import *
 import HiwonderSDK.Board as Board
 import logging
-
+import time
 STANDARD_COORDS = {  # colors of the blocks that can be perceived
     "red": (-14.5, 11.5, 1.5),
     "green": (-14.5, 5.5, 1.5),
@@ -59,7 +59,7 @@ def no_motion(my_camera):
         f = img.copy()
         frame_i = get_mask(f) 
         fps = 16
-        for i in range(0, fps*5):
+        for i in range(0, fps*2):
             img = my_camera.frame
             if img is not None:
                 f = img.copy()
@@ -208,8 +208,8 @@ class Motion(object):
         self.AK.setPitchRangeMoving((self.x, self.y, self.x), -90, -90, 0)
     
 if __name__ == "__main__":
-    # stop_event = threading.Event()
-    # mover = Motion(stop_event)
+    stop_event = threading.Event()
+    mover = Motion(stop_event)
 
     # # Dummy coord to test with
     # try:
@@ -225,15 +225,26 @@ if __name__ == "__main__":
     my_camera = Camera.Camera()
     my_camera.camera_open()
     # i = 0
+    t1 = time.time()
     while True:
-        status = no_motion(my_camera)
-        # print(str(i), my_camera.frame)
-        # img = my_camera.frame
-        # i = i + 1
-        #hand will begin to move
-        key = cv2.waitKey(1)
-        if key == 27:
-            break
+        if time.time()-t1 <20:
+            status = no_motion(my_camera)
+            # print(str(i), my_camera.frame)
+            # img = my_camera.frame
+            # i = i + 1
+            #hand will begin to move
+            key = cv2.waitKey(1)
+            if key == 27:
+                break
+        else:
+            status = no_motion(my_camera)
+            if status == True:
+                mover.move_arm(20, 12, 20)
+                mover.move_arm(20, 12, 12)
+                mover.move_arm(-20, 12, 12)
+                mover.move_arm(-20, 12, 20)
+                mover.move_arm(0, 12, 20)
+
     my_camera.camera_close()
     cv2.destroyAllWindows()
 
