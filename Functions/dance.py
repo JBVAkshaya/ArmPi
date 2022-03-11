@@ -60,7 +60,7 @@ def no_motion(my_camera):
         f = img.copy()
         frame_i = get_mask(f) 
         fps = 16
-        while time.time()-t1<1:
+        while time.time()-t1<2:
             img = my_camera.frame
             if img is not None:
                 f = img.copy()
