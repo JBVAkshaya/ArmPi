@@ -54,13 +54,12 @@ def no_motion(my_camera):
     img = my_camera.frame
     status = False
     # print("img: ", img)
-    t1 = time.time()
     if img is not None:
         # print("in if")
         f = img.copy()
         frame_i = get_mask(f) 
         fps = 16
-        while time.time()-t1<2.5:
+        for i in range(0, fps*2):
             img = my_camera.frame
             if img is not None:
                 f = img.copy()
@@ -228,7 +227,7 @@ if __name__ == "__main__":
     # i = 0
     t1 = time.time()
     while True:
-        if time.time()-t1 <19:
+        if time.time()-t1 <20:
             status = no_motion(my_camera)
             # print(str(i), my_camera.frame)
             # img = my_camera.frame
@@ -245,7 +244,7 @@ if __name__ == "__main__":
                 mover.move_arm(-20, 12, 12)
                 mover.move_arm(-20, 12, 20)
                 mover.move_arm(0, 12, 20)
-                time.sleep(2.0)
+                time.sleep(3)
 
     my_camera.camera_close()
     cv2.destroyAllWindows()
