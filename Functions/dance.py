@@ -254,35 +254,35 @@ if __name__ == "__main__":
     stop_event = threading.Event()
     mover = Motion(stop_event)
     mover._init_move()
-
-    # my_camera = Camera.Camera()
-    # my_camera.camera_open()
-    # # i = 0
-    # t1 = time.time()
-    # i = 0 
-    # while i<=3:
-    #     if time.time()-t1 <8:
-    #         status = no_motion(my_camera)
-    #         key = cv2.waitKey(1)
-    #         if key == 27:
-    #             break
-    #     else:
-    #         status = no_motion(my_camera)
-    #         if status == True:
-
-    #             for j in range (0, len(actions[str(i)])):
-    #                 mover.move_arm(actions[str(i)][j][0],actions[str(i)][j][1],actions[str(i)][j][2])
-    #                 time.sleep(1.)
-    #             time.sleep(3.)
-
-    #             i = i+1
-
-    # my_camera.camera_close()
-    # cv2.destroyAllWindows()
-
     mover.move_arm(0,25,3)
     time.sleep(3)
     mover.set_gripper("closed")
     time.sleep(5)
     mover.move_arm(0,25, 20)
     time.sleep(1)
+    mover.set_gripper("open")
+    time.sleep(1)
+    my_camera = Camera.Camera()
+    my_camera.camera_open()
+    # i = 0
+    t1 = time.time()
+    i = 0 
+    while i<=3:
+        if time.time()-t1 <8:
+            status = no_motion(my_camera)
+            key = cv2.waitKey(1)
+            if key == 27:
+                break
+        else:
+            status = no_motion(my_camera)
+            if status == True:
+
+                for j in range (0, len(actions[str(i)])):
+                    mover.move_arm(actions[str(i)][j][0],actions[str(i)][j][1],actions[str(i)][j][2])
+                    time.sleep(1.)
+                time.sleep(3.)
+
+                i = i+1
+
+    my_camera.camera_close()
+    cv2.destroyAllWindows()
