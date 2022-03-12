@@ -256,13 +256,23 @@ if __name__ == "__main__":
         time.sleep(1.5)
         mover.move_arm(10, 8, 15)
         time.sleep(1.5)
+        mover.move_arm(0, 8, 15)
+        # time.sleep(1.5)
 
         time.sleep(3)
-        mover.move_arm(0, 8, 15)
-        time.sleep(1.5)
         mover.move_arm(10, 8, 15)
         time.sleep(1.5)
         mover.move_arm(10, 12, 25)  # Blockify
+        time.sleep(1.5)        
+        mover.move_arm(0, 8, 15)
+        time.sleep(1.5)
+
+        time.sleep(3)
+        mover.move_arm(10, 8, 15)
+        time.sleep(1.5)
+        mover.move_arm(10, 12, 25)  # Blockify
+        time.sleep(1.5)
+        mover.move_arm(0, 12, 25)  # Blockify
         time.sleep(1.5)        
         mover.move_arm(0, 8, 15)
         time.sleep(1.5)
