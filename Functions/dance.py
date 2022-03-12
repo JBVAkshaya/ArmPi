@@ -284,5 +284,5 @@ if __name__ == "__main__":
     time.sleep(3)
     mover.set_gripper("closed")
     time.sleep(5)
-    mover.move_arm(0,25, 25)
+    mover.move_arm(0,25, 20)
     time.sleep(1)
