@@ -256,15 +256,15 @@ if __name__ == "__main__":
 
         mover.move_arm(0, 12, 12)
         time.sleep(1.5)
-        mover.move_arm(0, 12, 25)
+        mover.move_arm(0, 15, 25)
         time.sleep(1.5)
         mover.move_arm(0, 12, 18)
         time.sleep(1.5)
-        mover.move_arm(0, 12, 25)
+        mover.move_arm(0, 15, 25)
         time.sleep(1.5)
         mover.move_arm(0, 12, 18)
         time.sleep(1.5)
-        mover.move_arm(0, 12, 25)
+        mover.move_arm(0, 15, 25)
 
         # mover.move_arm(-20, 0, 10)
         # time.sleep(1.)
