@@ -210,7 +210,7 @@ class Motion(object):
 if __name__ == "__main__":
     stop_event = threading.Event()
     mover = Motion(stop_event)
-
+    mover._init_move()
     # # Dummy coord to test with
     # try:
     #     # mover.move_arm(0, 12, 20)
