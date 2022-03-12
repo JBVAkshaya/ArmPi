@@ -254,13 +254,13 @@ if __name__ == "__main__":
         # mover.move_arm(30, 12, 12)
 
 
-        mover.move_arm(15, 12, 15)
+        mover.move_arm(15, 12, 25)
         time.sleep(1.)
-        mover.move_arm(-20, 12, 10)
+        mover.move_arm(10, 12, 10)
         time.sleep(1.)
-        mover.move_arm(15, 12, 15)
+        mover.move_arm(15, 12, 25)
         time.sleep(1.)
-        mover.move_arm(-20, 12, 10)
+        mover.move_arm(10, 12, 10)
         time.sleep(1.)
         # mover.move_arm(0, 8, 12)
         # time.sleep(1.)
