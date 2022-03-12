@@ -222,32 +222,51 @@ if __name__ == "__main__":
     # except:
     #     print("does not work")
 
-    my_camera = Camera.Camera()
-    my_camera.camera_open()
-    # i = 0
-    t1 = time.time()
-    while True:
-        if time.time()-t1 <8:
-            status = no_motion(my_camera)
-            # print(str(i), my_camera.frame)
-            # img = my_camera.frame
-            # i = i + 1
-            #hand will begin to move
-            key = cv2.waitKey(1)
-            if key == 27:
-                break
-        else:
-            status = no_motion(my_camera)
-            if status == True:
-                mover.move_arm(20, 12, 20)
-                mover.move_arm(20, 12, 12)
-                mover.move_arm(-20, 12, 12)
-                mover.move_arm(-20, 12, 20)
-                mover.move_arm(0, 12, 20)
-                time.sleep(3)
+    # my_camera = Camera.Camera()
+    # my_camera.camera_open()
+    # # i = 0
+    # t1 = time.time()
+    # while True:
+    #     if time.time()-t1 <8:
+    #         status = no_motion(my_camera)
+    #         # print(str(i), my_camera.frame)
+    #         # img = my_camera.frame
+    #         # i = i + 1
+    #         #hand will begin to move
+    #         key = cv2.waitKey(1)
+    #         if key == 27:
+    #             break
+    #     else:
+    #         status = no_motion(my_camera)
+    #         if status == True:
+    #             mover.move_arm(20, 12, 20)
+    #             mover.move_arm(20, 12, 12)
+    #             mover.move_arm(-20, 12, 12)
+    #             mover.move_arm(-20, 12, 20)
+    #             mover.move_arm(0, 12, 20)
+    #             time.sleep(3)
 
-    my_camera.camera_close()
-    cv2.destroyAllWindows()
+    # my_camera.camera_close()
+    # cv2.destroyAllWindows()
+
+    while True:
+        mover.move_arm(30, 12, 30)
+        mover.move_arm(30, 12, 12)
+        mover.move_arm(-30, 12, 12)
+        mover.move_arm(-30, 12, 30)
+        mover.move_arm(0, 12, 30)
+
+        time.sleep(5)
+
+        mover.move_arm(15, 12, 30)
+        mover.move_arm(30, 12, 30)
+        mover.move_arm(30, 12, 12)
+        mover.move_arm(0, 12, 12)
+        mover.move_arm(-30, 12, 12)
+        mover.move_arm(-30, 12, 30)
+        mover.move_arm(-15, 12, 30)
+        mover.move_arm(0, 12, 30)
+
 
 
     # try:
