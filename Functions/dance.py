@@ -251,6 +251,8 @@ actions = {'0':[[-20,12,25],
                 [0,12,25]]    
                 }
 if __name__ == "__main__":
+    my_camera = Camera.Camera()
+    my_camera.camera_open()
     stop_event = threading.Event()
     mover = Motion(stop_event)
     mover._init_move()
@@ -262,8 +264,6 @@ if __name__ == "__main__":
     time.sleep(3)
     mover.set_gripper("open")
     time.sleep(1)
-    my_camera = Camera.Camera()
-    my_camera.camera_open()
     # i = 0
     t1 = time.time()
     i = 0 
