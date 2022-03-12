@@ -253,9 +253,11 @@ if __name__ == "__main__":
         # mover.move_arm(30, 12, 30)
         # mover.move_arm(30, 12, 12)
         mover.move_arm(0, 8, 8)
+        time.sleep(1.5)
         mover.move_arm(0, 12, 25)  # Blockify
-        time.sleep(0.5)
+        time.sleep(1.5)
         mover.move_arm(0, 8, 8)
+        time.sleep(1.5)
         mover.move_arm(0, 12, 25) 
         # mover.move_arm(0, 12, 12)
         # mover.move_arm(-20, 12, 12)
