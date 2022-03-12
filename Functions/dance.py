@@ -260,21 +260,21 @@ if __name__ == "__main__":
         # time.sleep(1.5)
 
         time.sleep(3)
-        mover.move_arm(20, 8, 10)
+        mover.move_arm(20, 0, 10)
         time.sleep(1.)
-        mover.move_arm(20, 12, 25)  # Blockify
+        mover.move_arm(20, 0, 25)  # Blockify
         time.sleep(1.)        
-        mover.move_arm(-20, 8, 10)
+        mover.move_arm(-20, 0, 10)
         time.sleep(1.)
 
         time.sleep(3)
-        mover.move_arm(20, 8, 10)
+        mover.move_arm(20, 0, 10)
         time.sleep(1.)
-        mover.move_arm(20, 12, 25)  # Blockify
+        mover.move_arm(20, 0, 25)  # Blockify
         time.sleep(1.)
-        mover.move_arm(-20, 12, 25)  # Blockify
+        mover.move_arm(-20, 0, 25)  # Blockify
         time.sleep(1.)        
-        mover.move_arm(-20, 8, 10)
+        mover.move_arm(-20, 0, 10)
         time.sleep(1.)
 
 
