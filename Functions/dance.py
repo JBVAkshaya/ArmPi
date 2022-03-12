@@ -224,7 +224,31 @@ actions = {'0':[[-20,12,25],
                 [-10,20,25],
                 [-10,8,12],
                 [-10,20,25],
-                [0,12,25]]
+                [0,12,25]],
+            '2':[[-10,8,12],
+                [-10,20,25],
+                [-10,8,12],
+                [-10,20,25],
+                [0,8,12],
+                [0,20,25],
+                [0,8,12],
+                [0,20,25],
+                [0,12,25]],
+            '3':[[-20,12,25],
+                [15,12,15],
+                [-20,12,10],
+                [5,12,5],
+                [-20,12,10],
+                [20,12,10],
+                [-10,8,12],
+                [-10,20,25],
+                [-10,8,12],
+                [-10,20,25],
+                [0,8,12],
+                [0,20,25],
+                [0,8,12],
+                [0,20,25],
+                [0,12,25]]    
                 }
 if __name__ == "__main__":
     stop_event = threading.Event()
@@ -247,7 +271,7 @@ if __name__ == "__main__":
     # i = 0
     t1 = time.time()
     i = 0 
-    while i<=1:
+    while i<=3:
         if time.time()-t1 <8:
             status = no_motion(my_camera)
             # print(str(i), my_camera.frame)
@@ -259,7 +283,7 @@ if __name__ == "__main__":
                 break
         else:
             status = no_motion(my_camera)
-            if status == True and i<=1:
+            if status == True:
 
                 for j in range (0, len(actions[str(i)])):
                     mover.move_arm(actions[str(i)][j][0],actions[str(i)][j][1],actions[str(i)][j][2])
