@@ -268,7 +268,7 @@ if __name__ == "__main__":
     t1 = time.time()
     i = 0 
     while i<=3:
-        if time.time()-t1 <8:
+        if time.time()-t1 <5:
             status = no_motion(my_camera)
             key = cv2.waitKey(1)
             if key == 27:
