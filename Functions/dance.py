@@ -252,11 +252,11 @@ if __name__ == "__main__":
     while True:
         # mover.move_arm(30, 12, 30)
         # mover.move_arm(30, 12, 12)
-        mover.move_arm(-20, 8, 10)
+        mover.move_arm(-20, 0, 10)
         time.sleep(1.)
-        mover.move_arm(20, 8, 10)
+        mover.move_arm(20, 0, 10)
         time.sleep(1.)
-        mover.move_arm(-20, 8, 10)
+        mover.move_arm(-20, 0, 10)
         # time.sleep(1.5)
 
         time.sleep(3)
