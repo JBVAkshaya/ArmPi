@@ -255,152 +255,32 @@ if __name__ == "__main__":
     mover = Motion(stop_event)
     mover._init_move()
 
-    # # Dummy coord to test with
-    # try:
-    #     # mover.move_arm(0, 12, 20)
-    #     mover.move_arm(20, 12, 20)
-    #     mover.move_arm(20, 12, 12)
-    #     mover.move_arm(-20, 12, 12)
-    #     mover.move_arm(-20, 12, 20)
-    #     mover.move_arm(0, 12, 20)
-    # except:
-    #     print("does not work")
+    # my_camera = Camera.Camera()
+    # my_camera.camera_open()
+    # # i = 0
+    # t1 = time.time()
+    # i = 0 
+    # while i<=3:
+    #     if time.time()-t1 <8:
+    #         status = no_motion(my_camera)
+    #         key = cv2.waitKey(1)
+    #         if key == 27:
+    #             break
+    #     else:
+    #         status = no_motion(my_camera)
+    #         if status == True:
 
-    my_camera = Camera.Camera()
-    my_camera.camera_open()
-    # i = 0
-    t1 = time.time()
-    i = 0 
-    while i<=3:
-        if time.time()-t1 <8:
-            status = no_motion(my_camera)
-            # print(str(i), my_camera.frame)
-            # img = my_camera.frame
-            # i = i + 1
-            #hand will begin to move
-            key = cv2.waitKey(1)
-            if key == 27:
-                break
-        else:
-            status = no_motion(my_camera)
-            if status == True:
+    #             for j in range (0, len(actions[str(i)])):
+    #                 mover.move_arm(actions[str(i)][j][0],actions[str(i)][j][1],actions[str(i)][j][2])
+    #                 time.sleep(1.)
+    #             time.sleep(3.)
 
-                for j in range (0, len(actions[str(i)])):
-                    mover.move_arm(actions[str(i)][j][0],actions[str(i)][j][1],actions[str(i)][j][2])
-                    time.sleep(1.)
-                time.sleep(3.)
-                # mover.move_arm(20, 12, 20)
-                # mover.move_arm(20, 12, 12)
-                # mover.move_arm(-20, 12, 12)
-                # mover.move_arm(-20, 12, 20)
-                # mover.move_arm(0, 12, 20)
-                # time.sleep(3)
-                i = i+1
+    #             i = i+1
 
-    my_camera.camera_close()
-    cv2.destroyAllWindows()
+    # my_camera.camera_close()
+    # cv2.destroyAllWindows()
 
-    # while True:
-        # mover.move_arm(30, 12, 30)
-        # mover.move_arm(30, 12, 12)
-
-
-        # mover.move_arm(15, 12, 25)
-        # time.sleep(1.)
-        # mover.move_arm(10, 12, 15)
-        # time.sleep(1.)
-        # mover.move_arm(15, 12, 25)
-        # time.sleep(1.)
-        # mover.move_arm(10, 12, 15)
-        # time.sleep(1.)
-        # mover.move_arm(0, 8, 12)
-        # time.sleep(1.)
-        # mover.move_arm(-10, 20, 25)
-        # time.sleep(1.)
-
-        # mover.move_arm(-10, 8, 12)
-        # time.sleep(1.)
-        # mover.move_arm(-10, 20, 25)
-        # time.sleep(1.)
-        # mover.move_arm(-10, 8, 12)
-        # time.sleep(1.)
-        # mover.move_arm(-10, 20, 25)
-        # time.sleep(1.)
-        # mover.move_arm(-10, 8, 12)
-        # time.sleep(1.)
-        # mover.move_arm(-10, 20, 25)
-        # time.sleep(1.)
-
-        # mover.move_arm(10, 8, 12)
-        # time.sleep(1.)
-        # mover.move_arm(10, 20, 25)
-        # time.sleep(1.)
-        # mover.move_arm(10, 8, 12)
-        # time.sleep(1.)
-        # mover.move_arm(10, 20, 25)
-        # time.sleep(1.)
-        # mover.move_arm(10, 8, 12)
-        # time.sleep(1.)
-        # mover.move_arm(10, 20, 25)
-        # time.sleep(1.)
-
-
-        # mover.move_arm(-20, 0, 10)
-        # time.sleep(1.)
-        # mover.move_arm(20, 0, 10)
-        # time.sleep(1.)
-        # mover.move_arm(-20, 0, 10)
-        # # time.sleep(1.5)
-
-        # time.sleep(3)
-        # mover.move_arm(20, 0, 10)
-        # time.sleep(1.)
-        # mover.move_arm(20, 0, 25)  # Blockify
-        # time.sleep(1.)        
-        # mover.move_arm(-20, 0, 10)
-        # time.sleep(1.)
-
-        # time.sleep(3)
-        # mover.move_arm(20, 0, 10)
-        # time.sleep(1.)
-        # mover.move_arm(20, 0, 25)  # Blockify
-        # time.sleep(1.)
-        # mover.move_arm(-20, 0, 25)  # Blockify
-        # time.sleep(1.)        
-        # mover.move_arm(-20, 0, 10)
-        # time.sleep(1.)
-
-
-
-
-        # mover.move_arm(0, 12, 25) 
-        # mover.move_arm(0, 12, 12)
-        # mover.move_arm(-20, 12, 12)
-        # mover.move_arm(0, 12, 12)
-        # mover.move_arm(20, 12, 12)
-        # mover.move_arm(-10, 12, 30)
-        # mover.move_arm(0, 12, 30)
-
-        # time.sleep(5)
-
-        # mover.move_arm(15, 12, 30)
-        # mover.move_arm(30, 12, 30)
-        # mover.move_arm(30, 12, 12)
-        # mover.move_arm(0, 12, 12)
-        # mover.move_arm(-30, 12, 12)
-        # mover.move_arm(-30, 12, 30)
-        # mover.move_arm(-15, 12, 30)
-        # mover.move_arm(0, 12, 30)
-
-
-
-    # try:
-    #     mover.grab_box(10, 10, -45)
-    #     mover.place_box("red")
-    #     mover.grab_box(10, -10, -30)
-    #     stop_event.set()
-    #     mover.place_box("blue")
-    # except KeyboardInterrupt:
-    #     logging.debug("Ending by user.")
-    # except StopError:
-    #     logging.debug(f"Big no no. Stop activated!!")
+    mover.move_arm(0,25,0)
+    time.sleep(1)
+    mover.move_arm(20,0, 25)
+    time.sleep(1)
