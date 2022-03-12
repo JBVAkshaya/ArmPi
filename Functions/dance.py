@@ -280,7 +280,7 @@ if __name__ == "__main__":
     # my_camera.camera_close()
     # cv2.destroyAllWindows()
 
-    mover.move_arm(0,25,1)
+    mover.move_arm(0,25,5)
     time.sleep(1)
     mover.set_gripper("closed")
     time.sleep(5)
