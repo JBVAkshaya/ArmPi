@@ -207,10 +207,30 @@ class Motion(object):
         # Lift up
         self.AK.setPitchRangeMoving((self.x, self.y, self.x), -90, -90, 0)
     
+global actions
+
+actions = {'0':[[-20,12,25],
+                [15,12,15],
+                [-20,12,10],
+                [5,12,5],
+                [0,12,25]],
+            '1':[[-20,12,25],
+                [15,12,15],
+                [-20,12,10],
+                [5,12,5],
+                [-20,12,10],
+                [20,12,10],
+                [-10,8,12],
+                [-10,20,25],
+                [-10,8,12],
+                [-10,20,25],
+                [0,12,25]]
+                }
 if __name__ == "__main__":
     stop_event = threading.Event()
     mover = Motion(stop_event)
     mover._init_move()
+
     # # Dummy coord to test with
     # try:
     #     # mover.move_arm(0, 12, 20)
@@ -222,46 +242,53 @@ if __name__ == "__main__":
     # except:
     #     print("does not work")
 
-    # my_camera = Camera.Camera()
-    # my_camera.camera_open()
-    # # i = 0
-    # t1 = time.time()
+    my_camera = Camera.Camera()
+    my_camera.camera_open()
+    # i = 0
+    t1 = time.time()
+    i = 0 
+    while i<=1:
+        if time.time()-t1 <8:
+            status = no_motion(my_camera)
+            # print(str(i), my_camera.frame)
+            # img = my_camera.frame
+            # i = i + 1
+            #hand will begin to move
+            key = cv2.waitKey(1)
+            if key == 27:
+                break
+        else:
+            status = no_motion(my_camera)
+            if status == True and i<=1:
+
+                for j in range (0, len(actions[str(i)])):
+                    mover.move_arm(actions[str(i)][j][0],actions[str(i)][j][1],actions[str(i)][j][2])
+                    time.sleep(1.)
+                time.sleep(3.)
+                # mover.move_arm(20, 12, 20)
+                # mover.move_arm(20, 12, 12)
+                # mover.move_arm(-20, 12, 12)
+                # mover.move_arm(-20, 12, 20)
+                # mover.move_arm(0, 12, 20)
+                # time.sleep(3)
+                i = i+1
+
+    my_camera.camera_close()
+    cv2.destroyAllWindows()
+
     # while True:
-    #     if time.time()-t1 <8:
-    #         status = no_motion(my_camera)
-    #         # print(str(i), my_camera.frame)
-    #         # img = my_camera.frame
-    #         # i = i + 1
-    #         #hand will begin to move
-    #         key = cv2.waitKey(1)
-    #         if key == 27:
-    #             break
-    #     else:
-    #         status = no_motion(my_camera)
-    #         if status == True:
-    #             mover.move_arm(20, 12, 20)
-    #             mover.move_arm(20, 12, 12)
-    #             mover.move_arm(-20, 12, 12)
-    #             mover.move_arm(-20, 12, 20)
-    #             mover.move_arm(0, 12, 20)
-    #             time.sleep(3)
-
-    # my_camera.camera_close()
-    # cv2.destroyAllWindows()
-
-    while True:
         # mover.move_arm(30, 12, 30)
         # mover.move_arm(30, 12, 12)
 
 
-        mover.move_arm(15, 12, 25)
+        # mover.move_arm(15, 12, 25)
         # time.sleep(1.)
-        mover.move_arm(10, 12, 15)
+        # mover.move_arm(10, 12, 15)
         # time.sleep(1.)
-        mover.move_arm(15, 12, 25)
+        # mover.move_arm(15, 12, 25)
         # time.sleep(1.)
-        mover.move_arm(10, 12, 15)
-        time.sleep(1.)
+        # mover.move_arm(10, 12, 15)
+        # time.sleep(1.)
         # mover.move_arm(0, 8, 12)
         # time.sleep(1.)
         # mover.move_arm(-10, 20, 25)
@@ -330,7 +357,7 @@ if __name__ == "__main__":
         # mover.move_arm(-10, 12, 30)
         # mover.move_arm(0, 12, 30)
 
-        time.sleep(5)
+        # time.sleep(5)
 
         # mover.move_arm(15, 12, 30)
         # mover.move_arm(30, 12, 30)
